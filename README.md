@@ -1,12 +1,16 @@
 # Scoping-in-
 Programming Assignment 2
 
- s<- function(x){
- m<- x$y()
- if(!is.null(m))
- data<- x$y()
- m<- mean(data,...)
- x$set(m)
- m
-}
-> 
+ Vector <- function(x = numeric()) {
+         m <- NULL
+         set <- function(y) {
+                x <<- y
+                m <<- NULL
+        }
+        get <- function() x
+        set<- function(mean) m <<- mean
+        get <- function() m
+        list(set = set, get = get,
+             setmean = setmean,
+             getmean = getmean)
+ }
